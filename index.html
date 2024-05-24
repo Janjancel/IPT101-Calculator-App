@@ -15,7 +15,7 @@
                     }
 
                     body{
-                        background-color: rgb(196, 220, 160);
+                        background-color: rgb(135, 133, 133);
                         justify-content:center ;
                         align-items: center;
                     }
@@ -35,8 +35,7 @@
                         border-radius: 20px;
                         background-color: #444444;  
                         box-shadow: #000000 10px 10px 10px;
-                        display: flex;
-                        margin-top: 50%;
+                        margin-top: 15%;
                     }
 
                     .container{
@@ -60,7 +59,7 @@
                               padding-bottom: 3px;
                               margin-bottom: 10px;
                               /* box-shadow: 1px 1px black; */
-                              outline-style:inset ;   
+                              outline-style:inset ;       
                               text-align: right;
                     }
 
@@ -83,47 +82,46 @@
           </style>
 </head>
 <body>
-          <!--<header style="background-color: #000000; text-align: center; margin-bottom: 10%; font-size: 50px; color: rgb(196, 220, 160); border-radius: 10px;">CALCULATOR APP</header>
+          <!-- <header style="background-color: #000000; text-align: center; margin-bottom: 10%; font-size: 50px; color: rgb(196, 220, 160); border-radius: 10px;">CALCULATOR APP</header> -->
           <!-- <h1>CALCULATOR APP try</h1> -->
     <div  class="po">
           <div class="container">
-                    <input type="text" readonly id="result" disabled value={{model.PortNumber || 0}}>
-                    <br>
-                    <input type="button" class="num-btn" value="AC" onclick="clearInput()">
-                    <input type="button" class="num-btn" value="(" onclick="appendNUm('(')">
-                    <input type="button" class="num-btn" value=")" onclick="appendNUm(')')">
-                    <input type="button" class="num-btn" value="⌫" onclick="clearOne()">
-                    <br>
-                    <input type="button" class="num-btn" value="sin" onclick="calculateSin()"> 
-                    <input type="button" class="num-btn" value="cos" onclick="calculateCos()"> 
-                    <input type="button" class="num-btn" value="tan" onclick="calculateTan()"> 
-                    <input type="button" class="num-btn" value="e" onclick="e()">
-                    <br>
-                    <input type="button" class="num-btn" value="√" onclick="sqrt('√')">
-                    <input type="button" class="num-btn" value="xʸ" onclick="exponent()">    
-                    <input type="button" class="num-btn" value="π" onclick="pi()">  
-                    <input type="button" class="num-btn" value="÷" onclick="operate('/')">
-                    <br>
-                    <input type="button" class="num-btn" value="1" onclick="appendNUm(1)">
-                    <input type="button" class="num-btn" value="2" onclick="appendNUm(2)">
-                    <input type="button" class="num-btn" value="3" onclick="appendNUm(3)">
-                    <input type="button" class="num-btn" value="x" onclick="operate('*')">
-                    <br>
-                    <input type="button" class="num-btn" value="4" onclick="appendNUm(4)">
-                    <input type="button" class="num-btn" value="5" onclick="appendNUm(5)">
-                    <input type="button" class="num-btn" value="6" onclick="appendNUm(6)">
-                    <input type="button" class="num-btn" value="-" onclick="operate('-')">
-                    <br>
-                    <input type="button" class="num-btn" value="7" onclick="appendNUm(7)">
-                    <input type="button" class="num-btn" value="8" onclick="appendNUm(8)">
-                    <input type="button" class="num-btn" value="9" onclick="appendNUm(9)">
-                    <input type="button" class="num-btn" value="+" onclick="operate('+')">
-                    <br>
-                    <input type="button" class="num-btn" value="." onclick="appendNUm('.')">
-                    <input type="button" class="num-btn" value="0" onclick="appendNUm(0)">
-                    <input type="button" class="num-btn" value="=" onclick="calculate()" style="width: 110px;">
-                                   
-                    <footer style="font-size: 10px; font-weight: 200;">created by: Jancel C. Peralta <br>2024</footer> 
+            <input type="text" readonly id="result" disabled value="0" placeholder="0" style="text-align: right; color: aqua;">
+            <br>
+            <button class="num-btn" value="AC" onclick="clearInput()">AC</button>
+            <button class="num-btn" value="(" onclick="appendNUm('(')">(</button>
+            <button class="num-btn" value=")" onclick="appendNUm(')')">)</button>
+            <button class="num-btn" value="⌫" onclick="clearOne()">⌫</button>
+            <br>
+            <button class="num-btn" value="sin" onclick="calculateSin()">sin</button>
+            <button class="num-btn" value="cos" onclick="calculateCos()">cos</button>
+            <button class="num-btn" value="tan" onclick="calculateTan()">tan</button>
+            <button class="num-btn" value="e" onclick="e()">e</button>
+            <br>
+            <button class="num-btn" value="√" onclick="sqrt('√')">√</button>
+            <button class="num-btn" value="xʸ" onclick="exponent()">xʸ</button>
+            <button class="num-btn" value="π" onclick="pi()">π</button>
+            <button class="num-btn" value="÷" onclick="operate('/')">÷</button>
+            <br>
+            <button class="num-btn" value="1" onclick="appendNUm(1)">1</button>
+            <button class="num-btn" value="2" onclick="appendNUm(2)">2</button>
+            <button class="num-btn" value="3" onclick="appendNUm(3)">3</button>
+            <button class="num-btn" value="x" onclick="operate('*')">x</button>
+            <br>
+            <button class="num-btn" value="4" onclick="appendNUm(4)">4</button>
+            <button class="num-btn" value="5" onclick="appendNUm(5)">5</button>
+            <button class="num-btn" value="6" onclick="appendNUm(6)">6</button>
+            <button class="num-btn" value="-" onclick="operate('-')">-</button>
+            <br>
+            <button class="num-btn" value="7" onclick="appendNUm(7)">7</button>
+            <button class="num-btn" value="8" onclick="appendNUm(8)">8</button>
+            <button class="num-btn" value="9" onclick="appendNUm(9)">9</button>
+            <button class="num-btn" value="+" onclick="operate('+')">+</button>
+            <br>
+            <button class="num-btn" value="." onclick="appendNUm('.')">.</button>
+            <button class="num-btn" value="0" onclick="appendNUm(0)">0</button>
+            <button class="num-btn" value="=" onclick="calculate()" style="width: 110px;">=</button>                           
+            <footer style="font-size: 10px; font-weight:200;">created by: Jancel C. Peralta</footer>   
   
     </div>
 
@@ -173,8 +171,8 @@
                   
                   const result = eval(currentInput);
                   document.getElementById('result').value = result;
-                  // currentOperator = "";
-                  currentInput = result;      
+                  currentInput = result.toString();     
+                  currentOperator = ''     
         }
 
       function clearInput(){
@@ -184,9 +182,8 @@
         }
 
       function clearOne(){ //this function delete one integer from the user input
-                  currentOperator = currentInput.slice(0, -1);
                   currentInput = currentInput.slice(0, -1);
-                  document.getElementById('result').value = currentInput, currentOperator;       
+                  document.getElementById('result').value = currentInput;  
         }
 
       function sqrt(number) { 
