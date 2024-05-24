@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Calculator App</title>
+          <link rel="icon" type="image/x-icon" href="icon.png" >
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <style>
+                    *{
+                        font-family: 'Poppins', sans-serif;
+                        font-size:large;
+                        font-weight: 500;
+                        color: #EDEDED
+                    }
+
+                    body{
+                        background-color: rgb(196, 220, 160);
+                        justify-content:center ;
+                        align-items: center;
+                    }
+
+                    h1{
+                              text-align: center;
+                    }
+
+                    .po{
+                        width: 310px;
+                        /* height: 40%; */
+                        justify-content: center;
+                        justify-items: center;
+                        margin: auto;
+                        /* width: fit-content; */
+                        padding: 5px;
+                        border-radius: 20px;
+                        background-color: #444444;  
+                        box-shadow: #000000 10px 10px 10px;
+                    }
+
+                    .container{
+                              background-color: #171717;
+                              padding: 5%;
+                              width:fit-content;
+                              height: fit-content;
+                              justify-content: center;
+                              text-align: center;
+                              margin: auto;
+                              border-radius: 20px;
+                              transition: opacity 0.6s ease;
+                    }
+
+                    #result{
+                              padding: 20px;
+                              background-color: #DA0037;
+                              width: 75%;
+                              /* color: #1A4D2E; */
+                              border-radius: 10px;
+                              padding-bottom: 3px;
+                              margin-bottom: 10px;
+                              /* box-shadow: 1px 1px black; */
+                              outline-style:inset ;       
+                    }
+
+                    .num-btn{
+                              padding: 0%;
+                              margin: 7px;
+                              width: 50px;
+                              height: 50px;
+                              border-radius: 30px;
+                              background-color: #444444;
+                              box-shadow: 1px 1px #000000;  
+                              transition: background-color 0.5s;         
+                    }
+
+                    .num-btn:hover{
+                      background-color: #DA0037;
+                    }
+                   
+
+          </style>
+</head>
+<body>
+          <header style="background-color: #000000; text-align: center; margin-bottom: 10%; font-size: 50px; color: rgb(196, 220, 160); border-radius: 10px;">CALCULATOR APP</header>
+          <!-- <h1>CALCULATOR APP try</h1> -->
+    <div  class="po">
+          <div class="container">
+                    <input type="text" readonly id="result" disabled>
+                    <br>
+                    <input type="button" class="num-btn" value="AC" onclick="clearInput()">
+                    <input type="button" class="num-btn" value="(" onclick="appendNUm('(')">
+                    <input type="button" class="num-btn" value=")" onclick="appendNUm(')')">
+                    <input type="button" class="num-btn" value="⌫" onclick="clearOne()">
+                    <br>
+                    <input type="button" class="num-btn" value="sin" onclick="calculateSin()"> 
+                    <input type="button" class="num-btn" value="cos" onclick="calculateCos()"> 
+                    <input type="button" class="num-btn" value="tan" onclick="calculateTan()"> 
+                    <input type="button" class="num-btn" value="e" onclick="e()">
+                    <br>
+                    <input type="button" class="num-btn" value="√" onclick="sqrt('√')">
+                    <input type="button" class="num-btn" value="xʸ" onclick="exponent()">    
+                    <input type="button" class="num-btn" value="π" onclick="pi()">  
+                    <input type="button" class="num-btn" value="÷" onclick="operate('/')">
+                    <br>
+                    <input type="button" class="num-btn" value="1" onclick="appendNUm(1)">
+                    <input type="button" class="num-btn" value="2" onclick="appendNUm(2)">
+                    <input type="button" class="num-btn" value="3" onclick="appendNUm(3)">
+                    <input type="button" class="num-btn" value="x" onclick="operate('*')">
+                    <br>
+                    <input type="button" class="num-btn" value="4" onclick="appendNUm(4)">
+                    <input type="button" class="num-btn" value="5" onclick="appendNUm(5)">
+                    <input type="button" class="num-btn" value="6" onclick="appendNUm(6)">
+                    <input type="button" class="num-btn" value="-" onclick="operate('-')">
+                    <br>
+                    <input type="button" class="num-btn" value="7" onclick="appendNUm(7)">
+                    <input type="button" class="num-btn" value="8" onclick="appendNUm(8)">
+                    <input type="button" class="num-btn" value="9" onclick="appendNUm(9)">
+                    <input type="button" class="num-btn" value="+" onclick="operate('+')">
+                    <br>
+                    <input type="button" class="num-btn" value="." onclick="appendNUm('.')">
+                    <input type="button" class="num-btn" value="0" onclick="appendNUm(0)">
+                    <input type="button" class="num-btn" value="=" onclick="calculate()" style="width: 110px;">
+                                   
+                    <footer style="font-size: 10px; font-weight: 200;">created by: Jancel C. Peralta <br>2024</footer> 
+  
+    </div>
+
+    <script>
+      let currentInput = "";
+      let currentOperator = "";
+      alert("Welcome to my Calculator App!"); //i want to welcome the user of my calculator app so I implement the alert()
+
+      function appendNUm(number) {
+                  currentInput += number;
+                  document.getElementById('result').value = currentInput     
+        }
+
+        // function divide(){
+        //           currentOperator = "/";
+        //           currentInput += currentOperator;
+        //           document.getElementById('result').value = currentInput
+        // }
+
+        // function add(){
+        //           currentOperator = "+";
+
+        //           currentInput += currentOperator;
+        //           document.getElementById('result').value = currentInput
+        // }
+
+        // function subtract(){
+        //           currentOperator = "-";
+        //           currentInput += currentOperator;
+        //           document.getElementById('result').value = currentInput
+        // }
+        
+        // function multiply(){
+        //           currentOperator = "*";
+        //           currentInput += currentOperator;
+        //           document.getElementById('result').value = currentInput
+        // }
+      let answer = currentInput += currentOperator;
+      function operate(operator){
+                  
+                  currentOperator = operator;
+                  currentInput += currentOperator;
+                  document.getElementById('result').value = currentInput        
+        }
+
+      function calculate(){
+                  
+                  const result = eval(currentInput);
+                  document.getElementById('result').value = result;
+                  // currentOperator = "";
+                  currentInput = result;      
+        }
+
+      function clearInput(){
+                  currentOperator = '';
+                  currentInput = '';
+                  document.getElementById('result').value = '';
+        }
+
+      function clearOne(){ //this function delete one integer from the user input
+                  currentOperator = currentInput.slice(0, -1);
+                  currentInput = currentInput.slice(0, -1);
+                  document.getElementById('result').value = currentInput, currentOperator;       
+        }
+
+      function sqrt(number) { 
+                  let x = Math.sqrt(currentInput);
+                  document.getElementById('result').value = x;    
+                  currentInput = x;
+        }
+
+      function exponent(){
+                  currentOperator = "**";
+                  currentInput += currentOperator;
+                  document.getElementById('result').value = currentInput;
+        }
+
+      function pi(){
+                  currentOperator = "3.14159";
+                  currentInput += currentOperator;
+                  document.getElementById('result').value = currentInput;
+      }
+      
+      //--------------------------------------------------------------------------------------------------------------
+      
+      // define the sin function
+      function sin(currentInput) {
+        return Math.sin(currentInput);
+      }
+
+      // get the input field element
+      const inputField = document.getElementById('result');
+
+      // define a function that calculates the sin of the input value and displays the result
+      function calculateSin() {
+        const currentInput = inputField.value; // get the input value
+        const currentOperator = sin(currentInput);
+        const result = currentOperator;
+
+        // display the result in the input field
+        inputField.value = result;
+
+      }
+      // add an event listener to the input field that triggers the calculateSin function when the input value changes
+      inputField.addEventListener('input', calculateSin);
+      
+      //-------------------------------------------------------------------------------------------------------------
+     
+      // define the cos function
+      function cos(currentInput) {
+        return Math.cos(currentInput);
+      }
+
+      // get the input field element
+      const inputFields = document.getElementById('result');
+
+      // define a function that calculates the cos of the input value and displays the result
+      function calculateCos() {
+        const currentInput = inputFields.value; // get the input value
+        const currentOperator = cos(currentInput);
+        const result = currentOperator;
+
+        // display the result in the input field
+        inputFields.value = result;
+
+      }
+      // add an event listener to the input field that triggers the calculateCos function when the input value changes
+      inputFields.addEventListener('input', calculateCos);
+            
+      //--------------------------------------------------------------------------------------------------------------
+        
+      // define the cos function
+      function tan(currentInput) {
+        return Math.tan(currentInput);
+      }
+
+      // get the input field element
+      const inputFieldss = document.getElementById('result');
+
+      // define a function that calculates the cos of the input value and displays the result
+      function calculateTan() {
+        const currentInput = inputFieldss.value; // get the input value
+        const currentOperator = tan(currentInput);
+        const result = currentOperator;
+
+        // display the result in the input field
+        inputFieldss.value = result;
+
+      }
+      // add an event listener to the input field that triggers the calculateCos function when the input value changes
+      inputFieldss.addEventListener('input', calculateTan);
+
+      //---------------------------------------------------------------------------------------------------------------
+
+      function e(){
+                  currentOperator = "2.71828";
+                  currentInput += currentOperator;
+                  document.getElementById('result').value = currentInput;
+      }
+
+</script>
+</body>
+</html>
