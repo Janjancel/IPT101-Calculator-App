@@ -96,7 +96,7 @@
             <button class="num-btn" value="sin" onclick="calculateSin()">sin</button>
             <button class="num-btn" value="cos" onclick="calculateCos()">cos</button>
             <button class="num-btn" value="tan" onclick="calculateTan()">tan</button>
-            <button class="num-btn" value="e" onclick="e()">e</button>
+            <button class="num-btn" value="0" onclick="ans()">Ans</button>
             <br>
             <button class="num-btn" value="√" onclick="sqrt('√')">√</button>
             <button class="num-btn" value="xʸ" onclick="exponent()">xʸ</button>
@@ -120,19 +120,22 @@
             <br>
             <button class="num-btn" value="." onclick="appendNUm('.')">.</button>
             <button class="num-btn" value="0" onclick="appendNUm(0)">0</button>
-            <button class="num-btn" value="=" onclick="calculate()" style="width: 110px;">=</button>                           
+            <button class="num-btn" value="e" onclick="e()">e</button>
+            <button class="num-btn" value="%" onclick="operate('%')">%</button>
+            <br>
+            <button class="num-btn" value="=" onclick="calculate()" style="width: 250px;">=</button>                           
             <footer style="font-size: 10px; font-weight:200;">created by: Jancel C. Peralta</footer>   
-  
     </div>
 
     <script>
       let currentInput = "";
       let currentOperator = "";
+      let previousAns = [];
       alert("Welcome to my Calculator App!"); //i want to welcome the user of my calculator app so I implement the alert()
 
       function appendNUm(number) {
                   currentInput += number;
-                  document.getElementById('result').value = currentInput     
+                  document.getElementById('result').value = currentInput;     
         }
 
         // function divide(){
@@ -164,14 +167,21 @@
                   
                   currentOperator = operator;
                   currentInput += currentOperator;
-                  document.getElementById('result').value = currentInput        
+                  document.getElementById('result').value = currentInput ;       
         }
+
+      function ans(){
+                  
+                  document.getElementById('result').value = previousAns[previousAns.length - 1];
+                  currentInput = previousAns[previousAns.length - 1];
+      }
 
       function calculate(){
                   
                   const result = eval(currentInput);
                   document.getElementById('result').value = result;
-                  currentInput = result.toString();     
+                  currentInput = result.toString();    
+                  previousAns.push(currentInput);
                   currentOperator = ''     
         }
 
@@ -207,79 +217,81 @@
       //--------------------------------------------------------------------------------------------------------------
       
       // define the sin function
-      function sin(currentInput) {
-        return Math.sin(currentInput);
-      }
+        function sin(currentInput) {
+          return Math.sin(currentInput);
+        }
 
-      // get the input field element
-      const inputField = document.getElementById('result');
+        // get the input field element
+        const inputField = document.getElementById('result');
 
-      // define a function that calculates the sin of the input value and displays the result
-      function calculateSin() {
-        const currentInput = inputField.value; // get the input value
-        const currentOperator = sin(currentInput);
-        const result = currentOperator;
+        // define a function that calculates the sin of the input value and displays the result
+        function calculateSin() {
+          const currentInput = inputField.value; // get the input value
+          const currentOperator = sin(currentInput);
+          const result = currentOperator;
 
-        // display the result in the input field
-        inputField.value = result;
+          // display the result in the input field
+          inputField.value = result;
 
-      }
-      // add an event listener to the input field that triggers the calculateSin function when the input value changes
-      inputField.addEventListener('input', calculateSin);
-      
-      //-------------------------------------------------------------------------------------------------------------
-     
-      // define the cos function
-      function cos(currentInput) {
-        return Math.cos(currentInput);
-      }
-
-      // get the input field element
-      const inputFields = document.getElementById('result');
-
-      // define a function that calculates the cos of the input value and displays the result
-      function calculateCos() {
-        const currentInput = inputFields.value; // get the input value
-        const currentOperator = cos(currentInput);
-        const result = currentOperator;
-
-        // display the result in the input field
-        inputFields.value = result;
-
-      }
-      // add an event listener to the input field that triggers the calculateCos function when the input value changes
-      inputFields.addEventListener('input', calculateCos);
-            
-      //--------------------------------------------------------------------------------------------------------------
+        }
+        // add an event listener to the input field that triggers the calculateSin function when the input value changes
+        inputField.addEventListener('input', calculateSin);
         
-      // define the cos function
-      function tan(currentInput) {
-        return Math.tan(currentInput);
-      }
+        //-------------------------------------------------------------------------------------------------------------
+      
+        // define the cos function
+        function cos(currentInput) {
+          return Math.cos(currentInput);
+        }
 
-      // get the input field element
-      const inputFieldss = document.getElementById('result');
+        // get the input field element
+        const inputFields = document.getElementById('result');
 
-      // define a function that calculates the cos of the input value and displays the result
-      function calculateTan() {
-        const currentInput = inputFieldss.value; // get the input value
-        const currentOperator = tan(currentInput);
-        const result = currentOperator;
+        // define a function that calculates the cos of the input value and displays the result
+        function calculateCos() {
+          const currentInput = inputFields.value; // get the input value
+          const currentOperator = cos(currentInput);
+          const result = currentOperator;
 
-        // display the result in the input field
-        inputFieldss.value = result;
+          // display the result in the input field
+          inputFields.value = result;
 
-      }
-      // add an event listener to the input field that triggers the calculateCos function when the input value changes
-      inputFieldss.addEventListener('input', calculateTan);
+        }
+        // add an event listener to the input field that triggers the calculateCos function when the input value changes
+        inputFields.addEventListener('input', calculateCos);
+              
+        //--------------------------------------------------------------------------------------------------------------
+          
+        // define the cos function
+        function tan(currentInput) {
+          return Math.tan(currentInput);
+        }
 
-      //---------------------------------------------------------------------------------------------------------------
+        // get the input field element
+        const inputFieldss = document.getElementById('result');
 
-      function e(){
-                  currentOperator = "2.71828";
-                  currentInput += currentOperator;
-                  document.getElementById('result').value = currentInput;
-      }
+        // define a function that calculates the cos of the input value and displays the result
+        function calculateTan() {
+          const currentInput = inputFieldss.value; // get the input value
+          const currentOperator = tan(currentInput);
+          const result = currentOperator;
+
+          // display the result in the input field
+          inputFieldss.value = result;
+
+        }
+        // add an event listener to the input field that triggers the calculateCos function when the input value changes
+        inputFieldss.addEventListener('input', calculateTan);
+
+        //---------------------------------------------------------------------------------------------------------------
+
+        function e(){
+                    currentOperator = "2.71828";
+                    currentInput += currentOperator;
+                    document.getElementById('result').value = currentInput;
+        }
+
+      
 
 </script>
 </body>
