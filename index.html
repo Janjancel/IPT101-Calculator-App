@@ -87,7 +87,7 @@
           <!-- <h1>CALCULATOR APP try</h1> -->
     <div  class="po">
           <div class="container">
-                    <input type="text" readonly id="result" disabled>
+                    <input type="text" readonly id="result" disabled value={{model.PortNumber || 0}}>
                     <br>
                     <input type="button" class="num-btn" value="AC" onclick="clearInput()">
                     <input type="button" class="num-btn" value="(" onclick="appendNUm('(')">
