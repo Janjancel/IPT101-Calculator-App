@@ -41,8 +41,8 @@
                     .container{
                               background-color: #171717;
                               padding: 5%;
-                              width:fit-content;
-                              height: fit-content;
+                              /* width:fit-content;
+                              height: fit-content; */
                               justify-content: center;
                               text-align: center;
                               margin: auto;
@@ -61,6 +61,12 @@
                               /* box-shadow: 1px 1px black; */
                               outline-style:inset ;       
                               text-align: right;
+                              text-align: right;
+                              color: aqua;
+                    }
+
+                    #equals{
+                      width: 250px;
                     }
 
                     .num-btn{
@@ -77,6 +83,10 @@
                     .num-btn:hover{
                       background-color: #DA0037;
                     }
+
+                    footer{
+                      font-size: 10px; font-weight:200;
+                    }
                    
 
           </style>
@@ -86,7 +96,7 @@
           <!-- <h1>CALCULATOR APP try</h1> -->
     <div  class="po">
           <div class="container">
-            <input type="text" readonly id="result" disabled value="0" placeholder="0" style="text-align: right; color: aqua;">
+            <input type="text" readonly id="result" disabled value="0" placeholder="0">
             <br>
             <button class="num-btn" value="AC" onclick="clearInput()">AC</button>
             <button class="num-btn" value="(" onclick="appendNUm('(')">(</button>
@@ -103,9 +113,9 @@
             <button class="num-btn" value="π" onclick="pi()">π</button>
             <button class="num-btn" value="÷" onclick="operate('/')">÷</button>
             <br>
-            <button class="num-btn" value="1" onclick="appendNUm(1)">1</button>
-            <button class="num-btn" value="2" onclick="appendNUm(2)">2</button>
-            <button class="num-btn" value="3" onclick="appendNUm(3)">3</button>
+            <button class="num-btn" value="7" onclick="appendNUm(7)">7</button>
+            <button class="num-btn" value="8" onclick="appendNUm(8)">8</button>
+            <button class="num-btn" value="9" onclick="appendNUm(9)">9</button>
             <button class="num-btn" value="x" onclick="operate('*')">x</button>
             <br>
             <button class="num-btn" value="4" onclick="appendNUm(4)">4</button>
@@ -113,9 +123,9 @@
             <button class="num-btn" value="6" onclick="appendNUm(6)">6</button>
             <button class="num-btn" value="-" onclick="operate('-')">-</button>
             <br>
-            <button class="num-btn" value="7" onclick="appendNUm(7)">7</button>
-            <button class="num-btn" value="8" onclick="appendNUm(8)">8</button>
-            <button class="num-btn" value="9" onclick="appendNUm(9)">9</button>
+            <button class="num-btn" value="1" onclick="appendNUm(1)">1</button>
+            <button class="num-btn" value="2" onclick="appendNUm(2)">2</button>
+            <button class="num-btn" value="3" onclick="appendNUm(3)">3</button>
             <button class="num-btn" value="+" onclick="operate('+')">+</button>
             <br>
             <button class="num-btn" value="." onclick="appendNUm('.')">.</button>
@@ -123,8 +133,8 @@
             <button class="num-btn" value="e" onclick="e()">e</button>
             <button class="num-btn" value="%" onclick="operate('%')">%</button>
             <br>
-            <button class="num-btn" value="=" onclick="calculate()" style="width: 250px;">=</button>                           
-            <footer style="font-size: 10px; font-weight:200;">created by: Jancel C. Peralta</footer>   
+            <button class="num-btn" id="equals" value="=" onclick="calculate()">=</button>                           
+            <footer >created by: Jancel C. Peralta</footer>   
     </div>
 
     <script>
@@ -181,7 +191,7 @@
                   const result = eval(currentInput);
                   document.getElementById('result').value = result;
                   currentInput = result.toString();    
-                  previousAns.push(currentInput);
+                  previousAns.push(currentInput) 
                   currentOperator = ''     
         }
 
